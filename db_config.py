@@ -1,11 +1,11 @@
 DIALECT = 'mysql'
-DRIVER = 'mysqldb'
+DRIVER = 'pymysql'
 USERNAME = 'root'
 PASSWORD = 'password'
 HOST = '127.0.0.1'
 PORT = '3306'
-DATABASE = 'pastebin'
+DATABASE = 'User'
 
-SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE)
+SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT, DRIVER, USERNAME, PASSWORD, HOST, PORT, DATABASE)
 SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 SQLALCHEMY_TRACK_MODIFICATIONS = False
