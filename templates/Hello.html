@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+<!--    <style>
+       .button {
+            background-color: #007775;
+            color: #ffb52d;
+            cursor: pointer;
+            padding: 18px;
+            width: 10%;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0 auto;
+            height: 15px
+        }
+        .preview{
+            display: block;
+            height: auto;
+            overflow: visible;
+            margin: 0 auto;
+            text-align: center;
+            width: 2000px;
+        }
+        .text{
+            width: 500px;
+            height: 15px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+-->
+</head>
+<body>
+    <form action="{{ url_for('view_code') }}" method="post">
+        <div class="row">
+           <div class="text">
+                <input maxlength="20"  class="text" placeholder="the url" name="url" type="text">
+            </div>
+            <div class="button">
+                <a href="{{ url_for("view_code") }}"><input  name="submit" class="button" type="submit" value="search"></a>
+            </div>
+        </div>
+    </form>
+
+    <form action="{{url_for('Code')}}" method="post">
+		<div class="row">
+			<div class="text">
+                <input maxlength="20" placeholder="Paste title" name="title" type="text">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="preview">
+                <textarea  rows="18" placeholder="Paste data" name="code" cols="50"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="button">
+                <a href="{{ url_for('view_code') }}"><input name="_submit" class="button" type="submit" value="Paste"></a>
+			</div>
+		</div>
+    </form>
+</body>
