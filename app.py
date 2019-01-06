@@ -1,15 +1,16 @@
 from flask import *
 from flask_sqlalchemy import *
 import db_config
+
 app = Flask(__name__)
 app.config.from_object(db_config)
 db = SQLAlchemy(app)
 
 
-class User (db.Model):
+class User(db.Model):
     # primary_key=True是主键db.Column是字段名， db.INT是数据类型
-    __tablename__ = 'pastbin'
-   # id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'User'
+    # id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(20), primary_key=True)
     url = db.Column(db.String(45), unique=True)
     code = db.Column(db.String(300), unique=False)
@@ -32,7 +33,7 @@ def Hello():
 def Code():
     title = request.form.get("title")
     code = request.form.get('code')
-    url = '//return/'+title
+    url = '//return/' + title
     # if title is None:
     #     return '错误输入', 404
     # elif User.query.get_or_404(title) != 404:
@@ -51,7 +52,7 @@ def ok():
 
 @app.route('/return/<title>/', methods=['Post'])
 def view_code(title):
-    data = pastebin.query.get(title)
+    data = User.query.get(title)
     return render_template('return.html'), data
 
 
